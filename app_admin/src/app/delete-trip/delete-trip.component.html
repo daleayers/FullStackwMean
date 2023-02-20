@@ -1,0 +1,17 @@
+<div class="col-md-3">
+    <h2 class="text-center">Delete Trip</h2>
+  </div>
+  
+  <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="tripId">Trip ID:</label>
+      <input type="text" formControlName="tripId" class="form-control" id="tripId" placeholder="Enter trip ID">
+    </div>
+    
+    <div class="form-group">
+      <label for="tripName">Trip Name:</label>
+      <input type="text" formControlName="tripName" class="form-control" id="tripName" placeholder="Enter trip name">
+    </div>
+    
+    <button type="submit" class="btn btn-info">Delete Trip</button>
+  </form>
