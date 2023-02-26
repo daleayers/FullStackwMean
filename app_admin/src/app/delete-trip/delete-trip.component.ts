@@ -19,7 +19,7 @@ export class DeleteTripComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private tripService: TripDataService,
-    private authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() {
@@ -30,7 +30,6 @@ export class DeleteTripComponent implements OnInit {
       this.router.navigate(['']);
       return;
     }
-    
 
     console.log('DeleteTripComponent#onInit found tripCode ' + tripCode);
 
@@ -39,8 +38,6 @@ export class DeleteTripComponent implements OnInit {
       tripId: [tripCode, Validators.required],
       tripName: ['', Validators.required]
     });
-
-    
     
     console.log('DeleteTripComponent#onInit calling TripDataService#getTrip(\'' + tripCode + '\')');
 
@@ -57,10 +54,6 @@ export class DeleteTripComponent implements OnInit {
         this.errorMessage = 'An error occurred while retrieving trip data.';
       });
    }
-
-   public isLoggedIn(): boolean {
-    return this.authenticationService.isLoggedIn();
-  }
 
   onSubmit() {
     this.submitted = true;
@@ -79,6 +72,8 @@ export class DeleteTripComponent implements OnInit {
         });
     }
    }
+   public isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
 
 }
-
